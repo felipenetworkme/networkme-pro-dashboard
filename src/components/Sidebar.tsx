@@ -1,11 +1,10 @@
-
-import { Home, AutoAwesome, Construction, School } from "lucide-react";
+import { Home, Sparkles, Construction, School } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Sidebar = () => {
   const menuItems = [
     { name: "Início", icon: Home, active: true },
-    { name: "Maestro", icon: AutoAwesome, active: false },
+    { name: "Maestro", icon: Sparkles, active: false },
     { name: "Ferramentas", icon: Construction, active: false },
     { name: "Conteúdo", icon: School, active: false },
   ];

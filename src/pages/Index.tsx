@@ -28,13 +28,20 @@ const Index = () => {
       
       <main className="flex-1 overflow-y-auto">
         <div className="max-w-4xl mx-auto px-6 py-8">
+          {/* Profile and objective header */}
           <ProfileHeader />
           
-          {/* Progress indicator is now part of the profile header */}
+          {/* Chatbot assistant widget */}
+          <div className="mb-8">
+            <MaestroWidget />
+          </div>
           
-          <MaestroWidget />
-          <MissionsWidget />
+          {/* Missions widget with action plan */}
+          <div className="mb-8">
+            <MissionsWidget />
+          </div>
           
+          {/* Tools widget */}
           <div className="mt-8">
             <ToolsWidget />
           </div>

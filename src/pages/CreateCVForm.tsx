@@ -11,6 +11,7 @@ import { ReviewForm } from "@/components/cv-form/ReviewForm";
 import { CVPreview } from "@/components/cv-form/CVPreview";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
+import Sidebar from "@/components/Sidebar";
 
 const STEPS = [
   "Dados Pessoais",
@@ -148,41 +149,45 @@ const CreateCVForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="max-w-4xl mx-auto px-6 py-12">
-        <Stepper 
-          steps={STEPS} 
-          currentStep={currentStep} 
-          className="mb-8" 
-        />
-        
-        <Card className="rounded-networkme-card shadow-networkme">
-          <CardContent className="p-8">
-            {renderStepContent()}
-            
-            {currentStep < STEPS.length - 1 && (
-              <div className="flex justify-between mt-8">
-                <Button 
-                  variant="outline" 
-                  onClick={handleBack}
-                  disabled={currentStep === 0}
-                  className="flex items-center"
-                >
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  Voltar
-                </Button>
-                <Button 
-                  onClick={handleNext}
-                  className="flex items-center bg-primary text-primary-foreground"
-                >
-                  Próximo
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-            )}
-          </CardContent>
-        </Card>
-      </div>
+    <div className="min-h-screen bg-background flex">
+      <Sidebar />
+      
+      <main className="flex-1 overflow-y-auto">
+        <div className="max-w-4xl mx-auto px-6 py-12">
+          <Stepper 
+            steps={STEPS} 
+            currentStep={currentStep} 
+            className="mb-8" 
+          />
+          
+          <Card className="rounded-networkme-card shadow-networkme">
+            <CardContent className="p-8">
+              {renderStepContent()}
+              
+              {currentStep < STEPS.length - 1 && (
+                <div className="flex justify-between mt-8">
+                  <Button 
+                    variant="outline" 
+                    onClick={handleBack}
+                    disabled={currentStep === 0}
+                    className="flex items-center"
+                  >
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                  </Button>
+                  <Button 
+                    onClick={handleNext}
+                    className="flex items-center bg-primary text-primary-foreground"
+                  >
+                    Próximo
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+      </main>
     </div>
   );
 };

@@ -3,8 +3,19 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Edit, Flag } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const ProfileHeader = () => {
+  const location = useLocation();
+  const [completedMissions, setCompletedMissions] = useState(0);
+
+  useEffect(() => {
+    // Check if returning from completing a mission
+    if (location.state && location.state.completedMission) {
+      setCompletedMissions(1); // For now, we track 1 completed mission
+    }
+  }, [location]);
   return (
     <Card className="mb-6 rounded-networkme-card shadow-networkme">
       <CardContent className="p-6 sm:p-8">
@@ -53,7 +64,7 @@ const ProfileHeader = () => {
             <div className="flex items-center gap-2 justify-start sm:justify-end">
               <Flag className="h-5 w-5 text-primary" />
               <span className="text-sm">
-                <strong>1</strong> / 5 Missões Concluídas
+                <strong>{completedMissions}</strong> / 5 Missões Concluídas
               </span>
             </div>
           </div>

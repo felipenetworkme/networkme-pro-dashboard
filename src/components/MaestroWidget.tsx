@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowUpRight } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 const MaestroWidget = () => {
   return (
@@ -26,9 +27,11 @@ const MaestroWidget = () => {
           />
           
           <div className="flex justify-end">
-            <Button variant="link" className="text-sm text-primary p-0 h-auto font-medium">
-              Abrir conversa completa
-              <ArrowUpRight className="ml-1 h-3 w-3" />
+            <Button variant="link" className="text-sm text-primary p-0 h-auto font-medium" asChild>
+              <NavLink to="/maestro">
+                Abrir conversa completa
+                <ArrowUpRight className="ml-1 h-3 w-3" />
+              </NavLink>
             </Button>
           </div>
         </div>

@@ -31,15 +31,18 @@ const Sidebar = () => {
           <span className="font-medium">Início</span>
         </NavLink>
 
-        <div
-          className={cn(
+        <NavLink 
+          to="/maestro"
+          className={({ isActive }) => cn(
             "flex items-center gap-3 px-4 py-3 rounded-networkme-button mb-2 cursor-pointer transition-colors",
-            "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+            isActive
+              ? "bg-primary text-primary-foreground" 
+              : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
           )}
         >
           <Sparkles className="h-5 w-5" />
           <span className="font-medium">Maestro</span>
-        </div>
+        </NavLink>
 
         <div
           className={cn(
@@ -81,7 +84,7 @@ const Sidebar = () => {
           )}
         >
           <MessagesSquare className="h-5 w-5" />
-          <span className="font-medium">Simulador de Entrevistas</span>
+          <span className="font-medium">Entrevista IA</span>
           <span className="ml-2 bg-muted text-muted-foreground px-2 py-0.5 rounded-md text-xs">
             Em Breve
           </span>

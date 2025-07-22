@@ -1,3 +1,4 @@
+
 import { Home, Sparkles, Construction, School } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -20,7 +21,7 @@ const Sidebar = () => {
           <div
             key={item.name}
             className={cn(
-              "flex items-center gap-3 px-4 py-3 rounded-lg mb-2 cursor-pointer transition-colors",
+              "flex items-center gap-3 px-4 py-3 rounded-networkme-button mb-2 cursor-pointer transition-colors",
               item.active 
                 ? "bg-primary text-primary-foreground" 
                 : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"

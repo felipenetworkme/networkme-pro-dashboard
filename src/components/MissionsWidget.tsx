@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowRight } from "lucide-react";
@@ -49,7 +49,7 @@ const MissionsWidget = () => {
 
   return (
     <div className="mb-6">
-      <h2 className="text-xl font-semibold text-foreground mb-4">
+      <h2 className="text-xl font-bold text-primary mb-4">
         Seu Plano de Ação (Missões)
       </h2>
       
@@ -62,7 +62,7 @@ const MissionsWidget = () => {
             <Card 
               key={mission.id}
               className={cn(
-                "transition-all",
+                "transition-all rounded-networkme-card shadow-networkme",
                 isCompleted && "opacity-60 bg-muted/30",
                 isInactive && "opacity-50 bg-muted/30"
               )}
@@ -78,9 +78,9 @@ const MissionsWidget = () => {
                   
                   <div className="flex-1">
                     <h3 className={cn(
-                      "text-lg font-medium mb-2",
+                      "text-lg font-bold mb-2",
                       isCompleted && "line-through",
-                      isInactive ? "text-muted-foreground" : "text-foreground"
+                      isInactive ? "text-muted-foreground" : "text-primary"
                     )}>
                       {mission.title}
                       {isInactive && (
@@ -100,7 +100,7 @@ const MissionsWidget = () => {
                     )}
                     
                     {mission.active && !isCompleted && (
-                      <Button className="bg-primary hover:bg-primary/90">
+                      <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-networkme-button">
                         Começar Missão
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>

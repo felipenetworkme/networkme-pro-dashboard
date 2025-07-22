@@ -6,9 +6,9 @@ import { ArrowUpRight } from "lucide-react";
 
 const MaestroWidget = () => {
   return (
-    <Card className="mb-6">
+    <Card className="mb-6 rounded-networkme-card shadow-networkme">
       <CardHeader>
-        <CardTitle className="text-lg font-semibold text-foreground">
+        <CardTitle className="text-lg font-bold text-primary">
           Maestro - Seu Assistente de Carreira
         </CardTitle>
       </CardHeader>
@@ -22,11 +22,11 @@ const MaestroWidget = () => {
         <div className="space-y-3">
           <Input
             placeholder="Responda ao Maestro ou faça uma pergunta..."
-            className="w-full"
+            className="w-full rounded-networkme-button"
           />
           
           <div className="flex justify-end">
-            <Button variant="link" className="text-sm text-muted-foreground p-0 h-auto">
+            <Button variant="link" className="text-sm text-primary p-0 h-auto font-medium">
               Abrir conversa completa
               <ArrowUpRight className="ml-1 h-3 w-3" />
             </Button>

@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ["Poppins", "sans-serif"],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,6 +65,10 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				networkme: {
+					purple: 'hsl(var(--networkme-purple))',
+					green: 'hsl(var(--networkme-green))',
 				}
 			},
 			borderRadius: {
@@ -89,6 +97,13 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
+			},
+			boxShadow: {
+				'networkme': '0 4px 12px rgba(0, 0, 0, 0.08)',
+			},
+			borderRadius: {
+				'networkme-card': '12px',
+				'networkme-button': '8px',
 			}
 		}
 	},

@@ -1,4 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, Mic, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -29,7 +30,7 @@ const ToolsWidget = () => {
 
   return (
     <div>
-      <h2 className="text-xl font-semibold text-foreground mb-4">
+      <h2 className="text-xl font-bold text-primary mb-4">
         Sua Caixa de Ferramentas de IA
       </h2>
       
@@ -38,7 +39,7 @@ const ToolsWidget = () => {
           <Card 
             key={tool.title}
             className={cn(
-              "transition-all cursor-pointer",
+              "transition-all cursor-pointer rounded-networkme-card shadow-networkme",
               tool.active 
                 ? "hover:shadow-md" 
                 : "opacity-50 bg-muted/30 cursor-default"
@@ -62,9 +63,9 @@ const ToolsWidget = () => {
               </div>
               
               <CardTitle className={cn(
-                "text-lg",
+                "text-lg font-bold",
                 tool.active 
-                  ? "text-foreground" 
+                  ? "text-primary" 
                   : "text-muted-foreground"
               )}>
                 {tool.title}

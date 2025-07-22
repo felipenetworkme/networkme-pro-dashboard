@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { toast } from "sonner";
 
 interface Mission {
   id: string;
@@ -43,6 +44,9 @@ const MissionsWidget = () => {
       newCompleted.delete(missionId);
     } else {
       newCompleted.add(missionId);
+      toast.success('Parabéns, missão concluída!', {
+        position: 'bottom-right',
+      });
     }
     setCompletedMissions(newCompleted);
   };

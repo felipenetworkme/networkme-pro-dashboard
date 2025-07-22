@@ -67,18 +67,16 @@ const Sidebar = () => {
           <span className="font-medium">Criador de CV</span>
         </NavLink>
 
-        <div className="pl-6">
-          <div
-            className={cn(
-              "flex items-center gap-3 px-4 py-2 rounded-networkme-button mb-1 cursor-pointer transition-colors",
-              "text-muted-foreground/60"
-            )}
-          >
-            <MessagesSquare className="h-5 w-5 flex-shrink-0" />
-            <div className="flex flex-col">
-              <span className="font-medium">Entrevista IA</span>
-              <span className="text-xs text-muted-foreground/70">Em Breve</span>
-            </div>
+        <div
+          className={cn(
+            "flex items-center gap-3 px-4 py-3 rounded-networkme-button mb-2 cursor-pointer transition-colors pl-6",
+            "text-muted-foreground/60"
+          )}
+        >
+          <MessagesSquare className="h-5 w-5 flex-shrink-0" />
+          <div className="flex flex-col">
+            <span className="font-medium">Entrevista IA</span>
+            <span className="text-xs text-muted-foreground/70">Em Breve</span>
           </div>
         </div>
 

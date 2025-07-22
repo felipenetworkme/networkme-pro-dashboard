@@ -32,17 +32,17 @@ const Index = () => {
           <ProfileHeader />
           
           {/* Chatbot assistant widget */}
-          <div className="mb-8">
+          <div className="mb-10">
             <MaestroWidget />
           </div>
           
           {/* Missions widget with action plan */}
-          <div className="mb-8">
+          <div className="mb-10">
             <MissionsWidget />
           </div>
           
           {/* Tools widget */}
-          <div className="mt-8">
+          <div className="mt-10">
             <ToolsWidget />
           </div>
         </div>

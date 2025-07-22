@@ -74,11 +74,11 @@ const Sidebar = () => {
               "text-muted-foreground/60"
             )}
           >
-            <MessagesSquare className="h-5 w-5" />
-            <span className="font-medium">Entrevista IA</span>
-          </div>
-          <div className="px-4 pb-2">
-            <span className="text-xs text-muted-foreground/70">Em Breve</span>
+            <MessagesSquare className="h-5 w-5 flex-shrink-0" />
+            <div className="flex flex-col">
+              <span className="font-medium">Entrevista IA</span>
+              <span className="text-xs text-muted-foreground/70">Em Breve</span>
+            </div>
           </div>
         </div>
 

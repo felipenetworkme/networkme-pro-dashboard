@@ -89,18 +89,23 @@ const MissionsWidget = () => {
               key={mission.id}
               className={cn(
                 "transition-all rounded-networkme-card shadow-networkme",
-                isCompleted && "opacity-60 bg-muted/30",
+                isCompleted && "bg-muted/40 border-muted",
                 isInactive && "opacity-50 bg-muted/30"
               )}
             >
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <Checkbox
-                    checked={isCompleted}
-                    onCheckedChange={() => handleMissionToggle(mission.id)}
-                    disabled={isInactive}
-                    className="mt-1"
-                  />
+                  <div className="relative">
+                    <Checkbox
+                      checked={isCompleted}
+                      onCheckedChange={() => handleMissionToggle(mission.id)}
+                      disabled={isInactive}
+                      className={cn(
+                        "mt-1 data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500",
+                        isCompleted && "bg-green-500 border-green-500"
+                      )}
+                    />
+                  </div>
                   
                   <div className="flex-1">
                     <h3 className={cn(

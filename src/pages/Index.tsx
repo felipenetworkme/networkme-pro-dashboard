@@ -30,17 +30,14 @@ const Index = () => {
         <div className="max-w-4xl mx-auto px-6 py-8">
           <ProfileHeader />
           
-          <div className="mb-6">
-            <h2 className="text-xl font-bold text-primary mb-2">Progresso da Jornada</h2>
-            <Progress value={progressValue} className="h-4" />
-            <p className="text-sm text-muted-foreground mt-2">
-              {completedMissions} de {totalMissions} missões principais concluídas
-            </p>
-          </div>
+          {/* Progress indicator is now part of the profile header */}
           
           <MaestroWidget />
           <MissionsWidget />
-          <ToolsWidget />
+          
+          <div className="mt-8">
+            <ToolsWidget />
+          </div>
         </div>
       </main>
     </div>

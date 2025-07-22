@@ -1,5 +1,5 @@
 
-import { Home, Sparkles, School, FileText, MessagesSquare } from "lucide-react";
+import { Home, Sparkles, FileText, MessagesSquare, BookOpen, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -44,16 +44,6 @@ const Sidebar = () => {
           <span className="font-medium">Maestro</span>
         </NavLink>
 
-        <div
-          className={cn(
-            "flex items-center gap-3 px-4 py-3 rounded-networkme-button mb-2 cursor-pointer transition-colors",
-            "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-          )}
-        >
-          <School className="h-5 w-5" />
-          <span className="font-medium">Conteúdo</span>
-        </div>
-
         {/* Separator */}
         <div className="h-px bg-border my-4"></div>
         
@@ -77,18 +67,56 @@ const Sidebar = () => {
           <span className="font-medium">Criador de CV</span>
         </NavLink>
 
-        <div
-          className={cn(
-            "flex items-center gap-3 px-4 py-3 rounded-networkme-button mb-2 cursor-pointer transition-colors pl-6",
-            "text-muted-foreground/60 bg-muted/20"
-          )}
-        >
-          <MessagesSquare className="h-5 w-5" />
-          <span className="font-medium">Entrevista IA</span>
-          <span className="ml-2 bg-muted text-muted-foreground px-2 py-0.5 rounded-md text-xs">
-            Em Breve
+        <div className="pl-6">
+          <div
+            className={cn(
+              "flex items-center gap-3 px-4 py-2 rounded-networkme-button mb-1 cursor-pointer transition-colors",
+              "text-muted-foreground/60"
+            )}
+          >
+            <MessagesSquare className="h-5 w-5" />
+            <span className="font-medium">Entrevista IA</span>
+          </div>
+          <div className="px-4 pb-2">
+            <span className="text-xs text-muted-foreground/70">Em Breve</span>
+          </div>
+        </div>
+
+        {/* Separator */}
+        <div className="h-px bg-border my-4"></div>
+        
+        {/* Community Section */}
+        <div className="px-4 mb-2">
+          <span className="text-xs font-semibold text-muted-foreground tracking-wider">
+            COMUNIDADE
           </span>
         </div>
+        
+        <NavLink 
+          to="/conteudos"
+          className={({ isActive }) => cn(
+            "flex items-center gap-3 px-4 py-3 rounded-networkme-button mb-2 cursor-pointer transition-colors pl-6",
+            isActive
+              ? "bg-primary text-primary-foreground" 
+              : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+          )}
+        >
+          <BookOpen className="h-5 w-5" />
+          <span className="font-medium">Conteúdos</span>
+        </NavLink>
+
+        <NavLink 
+          to="/eventos"
+          className={({ isActive }) => cn(
+            "flex items-center gap-3 px-4 py-3 rounded-networkme-button mb-2 cursor-pointer transition-colors pl-6",
+            isActive
+              ? "bg-primary text-primary-foreground" 
+              : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+          )}
+        >
+          <Users className="h-5 w-5" />
+          <span className="font-medium">Eventos</span>
+        </NavLink>
       </nav>
     </div>
   );

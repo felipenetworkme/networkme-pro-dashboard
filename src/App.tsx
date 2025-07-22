@@ -9,6 +9,8 @@ import NotFound from "./pages/NotFound";
 import CreateCVMethod from "./pages/CreateCVMethod";
 import CreateCVForm from "./pages/CreateCVForm";
 import Maestro from "./pages/Maestro";
+import Conteudos from "./pages/Conteudos";
+import Eventos from "./pages/Eventos";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +23,8 @@ const App = () => (
           <Route path="/maestro" element={<Maestro />} />
           <Route path="/create-cv" element={<CreateCVMethod />} />
           <Route path="/create-cv-form" element={<CreateCVForm />} />
+          <Route path="/conteudos" element={<Conteudos />} />
+          <Route path="/eventos" element={<Eventos />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Toaster />

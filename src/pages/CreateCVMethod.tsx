@@ -1,6 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Description, AutoAwesome } from "lucide-react";
+import { FileText, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
@@ -24,7 +24,7 @@ const CreateCVMethod = () => {
           >
             <CardContent className="p-8 flex flex-col items-center text-center">
               <div className="bg-primary/10 p-4 rounded-full mb-4">
-                <Description className="h-10 w-10 text-primary" />
+                <FileText className="h-10 w-10 text-primary" />
               </div>
               <h2 className="text-xl font-bold text-primary mb-2">Criador Rápido (Formulário)</h2>
               <p className="text-muted-foreground">
@@ -39,7 +39,7 @@ const CreateCVMethod = () => {
           )}>
             <CardContent className="p-8 flex flex-col items-center text-center">
               <div className="bg-muted p-4 rounded-full mb-4">
-                <AutoAwesome className="h-10 w-10 text-muted-foreground" />
+                <Sparkles className="h-10 w-10 text-muted-foreground" />
               </div>
               <h2 className="text-xl font-bold text-muted-foreground mb-2">
                 Entrevista com o Maestro

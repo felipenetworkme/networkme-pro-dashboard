@@ -7,7 +7,7 @@ import { Progress } from "@/components/ui/progress";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen bg-background w-full">
+    <div className="flex min-h-screen bg-background">
       <AppSidebar />
       
       <main className="flex-1 overflow-y-auto">

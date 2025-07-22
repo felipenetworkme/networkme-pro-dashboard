@@ -21,34 +21,37 @@ const menuItems = [
 
 const AppSidebar = () => {
   return (
-    <SidebarProvider>
-      <ShadcnSidebar className="border-r border-border">
-        <SidebarHeader className="p-4">
-          <h1 className="text-xl font-bold text-primary">Networkme PRO</h1>
-          <SidebarTrigger className="absolute right-2 top-2" />
-        </SidebarHeader>
-        
-        <SidebarContent>
-          <SidebarMenu>
-            {menuItems.map((item) => (
-              <SidebarMenuItem key={item.name}>
-                <SidebarMenuButton
-                  className={cn(
-                    "flex items-center gap-3 px-4 py-3 rounded-md mb-2 w-full transition-colors",
-                    item.active 
-                      ? "bg-primary text-primary-foreground" 
-                      : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-                  )}
-                >
-                  <item.icon className="h-5 w-5" />
-                  <span className="font-medium">{item.name}</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            ))}
-          </SidebarMenu>
-        </SidebarContent>
-      </ShadcnSidebar>
-    </SidebarProvider>
+    <div className="group/sidebar-wrapper flex min-h-svh w-full has-[[data-variant=inset]]:bg-sidebar">
+      <SidebarProvider>
+        <ShadcnSidebar className="border-r border-border" variant="sidebar" collapsible="icon">
+          <SidebarHeader className="p-4 flex justify-between items-center">
+            <h1 className="text-xl font-bold text-primary">Networkme PRO</h1>
+            <SidebarTrigger className="h-7 w-7" />
+          </SidebarHeader>
+          
+          <SidebarContent>
+            <SidebarMenu>
+              {menuItems.map((item) => (
+                <SidebarMenuItem key={item.name}>
+                  <SidebarMenuButton
+                    className={cn(
+                      "flex items-center gap-3 px-4 py-3 rounded-networkme-button mb-2 w-full transition-colors",
+                      item.active 
+                        ? "bg-primary text-primary-foreground" 
+                        : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                    )}
+                    tooltip={item.name}
+                  >
+                    <item.icon className="h-5 w-5" />
+                    <span className="font-medium">{item.name}</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarContent>
+        </ShadcnSidebar>
+      </SidebarProvider>
+    </div>
   );
 };
 

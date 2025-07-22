@@ -1,11 +1,12 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface Mission {
   id: string;
@@ -16,6 +17,8 @@ interface Mission {
 
 const MissionsWidget = () => {
   const [completedMissions, setCompletedMissions] = useState<Set<string>>(new Set());
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const missions: Mission[] = [
     {
@@ -38,6 +41,19 @@ const MissionsWidget = () => {
     },
   ];
 
+  useEffect(() => {
+    // Check if returning from CV creation with completed mission
+    if (location.state && location.state.completedMission) {
+      const missionId = location.state.completedMission;
+      if (!completedMissions.has(missionId)) {
+        handleMissionToggle(missionId);
+      }
+      
+      // Clear the state to prevent showing the toast again on refresh
+      window.history.replaceState({}, document.title);
+    }
+  }, [location]);
+
   const handleMissionToggle = (missionId: string) => {
     const newCompleted = new Set(completedMissions);
     if (newCompleted.has(missionId)) {
@@ -49,6 +65,12 @@ const MissionsWidget = () => {
       });
     }
     setCompletedMissions(newCompleted);
+  };
+
+  const handleStartMission = (missionId: string) => {
+    if (missionId === "mission-1") {
+      navigate("/create-cv");
+    }
   };
 
   return (
@@ -104,7 +126,10 @@ const MissionsWidget = () => {
                     )}
                     
                     {mission.active && !isCompleted && (
-                      <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-networkme-button">
+                      <Button 
+                        className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-networkme-button"
+                        onClick={() => handleStartMission(mission.id)}
+                      >
                         Começar Missão
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>

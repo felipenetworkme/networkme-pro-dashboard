@@ -2,19 +2,24 @@
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, Mic, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useNavigate } from "react-router-dom";
 
 interface Tool {
   title: string;
   icon: any;
   active: boolean;
+  route?: string;
 }
 
 const ToolsWidget = () => {
+  const navigate = useNavigate();
+
   const tools: Tool[] = [
     {
       title: "AI CV Generator",
       icon: FileText,
       active: true,
+      route: "/create-cv"
     },
     {
       title: "AI Interview Simulator", 
@@ -28,6 +33,12 @@ const ToolsWidget = () => {
     },
   ];
 
+  const handleToolClick = (tool: Tool) => {
+    if (tool.active && tool.route) {
+      navigate(tool.route);
+    }
+  };
+
   return (
     <div>
       <h2 className="text-xl font-bold text-primary mb-4">
@@ -39,11 +50,12 @@ const ToolsWidget = () => {
           <Card 
             key={tool.title}
             className={cn(
-              "transition-all cursor-pointer rounded-networkme-card shadow-networkme",
+              "transition-all rounded-networkme-card shadow-networkme",
               tool.active 
-                ? "hover:shadow-md" 
+                ? "hover:shadow-md cursor-pointer" 
                 : "opacity-50 bg-muted/30 cursor-default"
             )}
+            onClick={() => handleToolClick(tool)}
           >
             <CardHeader className="text-center pb-4">
               <div className="flex justify-center mb-3">

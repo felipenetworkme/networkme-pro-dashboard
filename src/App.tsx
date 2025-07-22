@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import CreateCVMethod from "./pages/CreateCVMethod";
+import CreateCVForm from "./pages/CreateCVForm";
 
 const queryClient = new QueryClient();
 
@@ -15,6 +17,8 @@ const App = () => (
       <TooltipProvider>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/create-cv" element={<CreateCVMethod />} />
+          <Route path="/create-cv-form" element={<CreateCVForm />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Toaster />

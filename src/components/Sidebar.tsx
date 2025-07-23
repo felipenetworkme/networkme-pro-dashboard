@@ -67,18 +67,18 @@ const Sidebar = () => {
           <span className="font-medium">Criador de CV</span>
         </NavLink>
 
-        <div
-          className={cn(
-            "flex items-start gap-3 px-4 py-3 rounded-networkme-button mb-2 cursor-pointer transition-colors pl-6",
-            "text-muted-foreground/60"
+        <NavLink 
+          to="/entrevista-ia"
+          className={({ isActive }) => cn(
+            "flex items-center gap-3 px-4 py-3 rounded-networkme-button mb-2 cursor-pointer transition-colors pl-6",
+            isActive
+              ? "bg-primary text-primary-foreground" 
+              : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
           )}
         >
-          <MessagesSquare className="h-5 w-5 flex-shrink-0" />
-          <div className="flex flex-col">
-            <span className="font-medium">Entrevista IA</span>
-            <span className="text-xs text-muted-foreground/70">Em Breve</span>
-          </div>
-        </div>
+          <MessagesSquare className="h-5 w-5" />
+          <span className="font-medium">Entrevista IA</span>
+        </NavLink>
 
         {/* Separator */}
         <div className="h-px bg-border my-4"></div>
